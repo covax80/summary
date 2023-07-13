@@ -19,7 +19,7 @@ __status__ = "Production"
 import requests
 from pprint import pprint
 from sys import exit, argv
-from os import path as os_path
+from os import path as os_path, getcwd
 from datetime import datetime
 from bs4 import BeautifulSoup
 from argparse import ArgumentParser
@@ -42,7 +42,7 @@ def get_arguments():
     try:
         from ad_user import yandex_gpt_token
     except ModuleNotFoundError:
-        token_storage_file = os_path.join(os_path.abspath(__file__), "ad_user.py")
+        token_storage_file = os_path.join(getcwd(), "ad_user.py")
         open(token_storage_file, "w", encoding="utf8").write(yandex_gpt_token="")
         yandex_gpt_token = ""
 
